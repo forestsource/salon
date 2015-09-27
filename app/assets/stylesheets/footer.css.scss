@@ -1,0 +1,54 @@
+/*
+ *
+ *Footer
+ *
+ */
+#Footer {
+  width: 100%;
+  height: 200px;
+  float: left;
+
+  /*background-image: url("footer-lef.png"),url("footer-righ.png"),url("footer-top.png"),url("footer-bottom.png");
+  background-position: left,right,top,bottom;
+  background-repeat: repeat-y,repeat-y,repeat-x,repeat-x;*/
+}
+#Foot_left{
+    width: 50%;
+    height:100%;
+    float: left;
+    background-color: #F6F6F6;
+    border-top: #008125 6px solid;
+}
+#Foot_right{
+    width: 50%;
+    height:100%;
+    float: left;
+    background-color: #F6F6F6;
+    border-top: #008125 6px solid;
+}
+#Foot_top{
+    width:100%;
+    height:10%;
+    float: left;
+    text-align: right;
+    /*background-image: url("to_top.png");
+    background-position: right;
+    background-repeat: no-repeat;*/
+}
+#none{
+  width:97%;
+  height: 100px;
+  float:left;
+}
+#to_top{
+  width: 3%;
+  height: 100px;
+  float: left;
+  background-color: #008125;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+#top_buttom{
+  width: 30px;
+  height: 30px;
+}

@@ -1,0 +1,2 @@
+module Clerk::MenusHelper
+end

@@ -1,0 +1,32 @@
+<%@page_title ="予約時間選択"%>
+<h1><%= @page_title %></h1>
+
+<p>スタッフ<%= @staff.member.name %></p>
+
+<p>
+メニュー
+<%= @menu.menu_name %>
+</p>
+<p>
+所要時間
+<%= @menu.menu_time %>
+</p>
+
+<p>
+予約日
+<%= @ymd %>
+</p>
+<% if @shift.present? %>
+  <% if @future == 0 %>
+    <%= form_tag :check_reserves, method: :get do%>
+      <p>開始時間選択
+      <%= select_tag 'time_select', options_from_collection_for_select(@opens, :id, :time, 1) %>
+      </p>
+      <%= submit_tag "確認ページへ"%>
+    <% end %>
+    <%else%>
+    <p>過去に予約はできません。</p>
+  <%end%>
+<%else%>
+  <p>この日は空き時間がありません。</p>
+<% end%>

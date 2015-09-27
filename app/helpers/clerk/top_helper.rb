@@ -1,0 +1,2 @@
+module Clerk::TopHelper
+end

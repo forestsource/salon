@@ -1,0 +1,32 @@
+<h3>
+<% if flash.alert %>
+	<a class="alert"><%= flash.alert %></a>&nbsp;&nbsp;&nbsp;
+<% end %> 
+ログイン
+</h3>
+<%= form_tag :session do %>
+	<table id="login_form">
+		<tr>
+			<td></td>
+			<td>
+				ニックネーム：<%= text_field_tag "name", "" %>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				パスワード：<%= password_field_tag "password", "" %>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" >
+				<%= submit_tag "ログイン" %>
+				<%= link_to "新規登録", :new_member %>
+			</td>
+		</tr>
+	</table>
+	<%= hidden_field_tag "from", request.path %>
+<% end %>
+
+
+    

@@ -1,0 +1,44 @@
+<h1>Reserve/search</h1>
+
+<p>スタッフ<%= @staff.member.name %></p>
+
+<p>
+<% if @reserves %>
+  <% @reserves.each do |reserve| %>
+    <p>
+    検索した日の予約
+    id<%= reserve.id %>
+    menu<%= reserve.menu.menu_name %>
+    staff<%= reserve.staff.member.name %>
+    time<%= reserve.open.time %>
+    <%= reserve.open_id %>
+    <%= @rtime%>
+    所要時間<%= reserve.menu.menu_time %>
+    </p>
+  <% end %>
+<% end %>
+
+<p>スタッフ<%= @b %></p>
+<% if @shift %>
+  <p>シフト<%= @shift.day %></p>
+<% end %>
+
+<% @aki.each_with_index do |aki,i| %>
+  <p>
+    <%= i+1 %>コマ目
+    <%= aki %>
+  </p>
+<% end %>
+<% @available.each_with_index do |available,j| %>
+  <p>
+    予約可能<%= j+1 %>コマ目
+    <%= available %>
+  </p>
+<% end %>
+<p><%= link_to "new", :new_reserf %></p>
+<%= form_tag :search_reserves, method: :get do%>
+<p>選択
+<%= select_tag 'time_select', options_from_collection_for_select(@opens, :id, :time, 2) %>
+</p>
+<%= submit_tag "確定"%>
+<% end %>

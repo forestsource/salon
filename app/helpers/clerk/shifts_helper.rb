@@ -1,0 +1,2 @@
+module Clerk::ShiftsHelper
+end

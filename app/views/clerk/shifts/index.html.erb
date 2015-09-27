@@ -1,0 +1,18 @@
+<% @page_title = "シフト一覧"%>
+<h1><%=@page_title%></h1>
+<% if @shifts.present? %>
+<table class= "list">
+  <tr>
+    <th>日付</th>
+    <th>出勤時間</th>
+    <th>退勤時間</th>
+  </tr>
+  <% @shifts.each.with_index(1) do |shift ,idx| %>
+    <tr>
+      <td class="td<%=idx%2%>"><%= shift.day %></td>
+      <td class="td<%=idx%2%>"><%= shift.going.time %></td>
+      <td class="td<%=idx%2%>"><%= shift.leave.time %></td>
+    </tr>
+  <% end %>
+</table>
+<% end %>

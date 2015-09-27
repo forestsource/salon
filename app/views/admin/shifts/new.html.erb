@@ -1,0 +1,25 @@
+<% @page_title = "シフト登録"%>
+
+<h1><%= @page_title %></h1>
+
+<%= form_tag :check_admin_shifts, method: :get do%>
+  <br>
+  <p>店員選択</p>
+  <%= select_tag 'staff_select', options_from_collection_for_select(@clerks, :id, :name, 1) %>
+  </br>
+  
+  <p>日付選択</p>
+  <%= select_date Date.today ,:prefix=>"shift_day",:use_month_numbers => true %>
+  </br>
+  
+  <br>
+  <p>出勤時間</p>
+  <%= select_tag 'going_select', options_from_collection_for_select(@times, :id, :time, 1) %>
+  </br>
+  
+  <p>退勤時間</p>
+  <%= select_tag 'leave_select', options_from_collection_for_select(@times, :id, :time, 21) %>
+  </br>
+
+    <%= submit_tag "確認へ" %>
+<% end %>

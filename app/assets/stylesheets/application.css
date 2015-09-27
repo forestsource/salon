@@ -1,0 +1,67 @@
+/*
+ *= require_tree ../../../vendor/assets/stylesheets/.
+ *= require_self
+ *= require_tree .
+*/
+
+body {
+  width: 100%;
+  height: 80%;
+  
+}
+
+/*
+ *
+ *Main frame
+ *
+ */
+#Contener {
+  width: 60%;
+  margin 0 auto;
+  margin-left: 25%;
+  }
+
+  
+#Contents{
+    width: 80%;
+    height: 100%;
+    float: left;
+    /*background-color: #A6b9CC;*/
+    word-break:keep-all;
+    word-break:break-all;
+    word-break:normal;
+}
+
+#Main {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+}
+/*
+#Main_top{
+    width:80%;
+    height: 80%;
+    float: left;
+}
+#Main_middle_left{
+    height: 50%;
+    width: 40%;
+    float: left;
+}
+#Main_middle_right{
+    height: 50%;
+    width: 40%;
+    float: left;
+}
+#Main_middle_bottom{
+    height: 20%;
+    width: 80%;
+    float: left;
+}
+
+#Main_bottom{
+    height: 40%;
+    width:40%;
+    float: left;
+}
+*/

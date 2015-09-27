@@ -1,0 +1,38 @@
+<% @page_title = "メニュー一覧・登録"%>
+<h1><%= @page_title %></h1>
+
+<% if flash.notice %>
+	<a class="notices"><%= flash[:notice] %></a>
+        <br>
+<% end %>
+
+<p><%= link_to "メニュー登録", :new_admin_menu %></p>
+<br>
+<% if @menus.present? %>
+<table class="list">
+  <tr>
+    <th>メニュー名</th>
+    <th>所要時間</th>
+    <th>お値段</th>
+    <th>カテゴリー</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% @menus.each.with_index do |menu,idx| %>
+  <tr>
+    <td class="td<%=idx%2%>" align="right"><%= menu.menu_name %></td>
+    <td class="td<%=idx%2%>"><%= menu.menu_time %></td>
+    <td class="td<%=idx%2%>"><%= menu.price %></td>
+    <td class="td<%=idx%2%>"><%= menu.category.category_name %></td>
+    <td class="td<%=idx%2%>">
+    <%= link_to "編集", [:edit, :admin, menu] %>
+    </td>
+    <td class="td<%=idx%2%>">
+    <%= link_to "削除", admin_menu_path(menu), method: :delete, confirm: "本当に削除しますか？"%>
+    </td>
+  </tr>
+  <% end %>
+</table>
+<% else %>
+  <p>メニューがありません。</p>
+<% end %>

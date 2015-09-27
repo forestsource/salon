@@ -1,0 +1,30 @@
+<h1>Reserves#check</h1>
+<p>Find me in app/views/reserves/check.html.erb</p>
+
+<table class = "attr">
+  <tr>
+    <th class="th-top">メニュー</th>
+    <td class="td-top"><%= @menu.menu_name %></td>
+  </tr>
+  <tr>
+    <th>担当スタッフ</th>
+    <td><%= @staff.member.name %></td>
+  </tr>
+  <tr>
+    <th>お値段</th>
+    <td><%= @menu.price %>yen</td>
+  </tr>
+  <tr>
+    <th>ご予約日</th>
+    <td><%= @ymd %></td>
+  </tr>
+  <tr>
+    <th>開始時間</th>
+    <td><%= @open.time %></td>
+  </tr>
+  <tr>
+    <th>所要時間</th>
+    <td><%= @menu.menu_time %>分</td>
+  </tr>
+</table>
+<%= link_to "確定", :reserves, method: :post %>

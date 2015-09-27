@@ -1,0 +1,35 @@
+<%@page_title = "スタッフ一覧"%>
+<h1><%= @page_title %></h1>
+
+<% if flash.notice %>
+	<a class="notices"><%= flash[:notice] %></a>
+        <br>
+<% end %>
+
+<%= link_to "スタッフ新規登録", :new_admin_staff%>
+<% if @staffs.present? %>
+<table class= "list">
+  <tr>
+    <th>スタッフ名</th>
+    <th>性別</th>
+    <th>電話番号</th>
+    <th>自己紹介</th>
+    <th>趣味</th>
+    <th>得意分野</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% @staffs.each.with_index(1) do |staff ,idx| %>
+    <tr>
+      <td class="td<%=idx%2%>"><%= staff.member.name %></td>
+      <td class="td<%=idx%2%>"><%= staff.member.sex == 0 ? "男" : "女" %></td>
+      <td class="td<%=idx%2%>"><%= staff.member.tel %></td>
+      <td class="td<%=idx%2%>"><%= staff.intro_myself %></td>
+      <td class="td<%=idx%2%>"><%= staff.interest %></td>
+      <td class="td<%=idx%2%>"><%= staff.category.category_name %></td>
+      <td class="td<%=idx%2%>"><%= link_to "編集", [:edit, :admin, staff] %></td>
+      <td class="td<%=idx%2%>"><%= link_to "削除", [:admin, staff], method: :delete, confirm: "本当に削除しますか？" %></td>
+    </tr>
+  <% end %>
+</table>
+<% end %>

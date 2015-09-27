@@ -1,0 +1,38 @@
+<% @page_title="スタッフ登録確認"%>
+<h1><%= @page_title%></h1>
+<table class = "attr">
+  <tr>
+    <%if @member.present?%>
+    <th class="th-top">名前</th>
+    <td class="td-top"><%= @member_name%></td>
+  </tr>
+  <tr>
+    <th>得意分野</th>
+    <td><%= @category.category_name %></td>
+  </tr>
+  <tr>
+    <th>自己紹介</th>
+    <td><%= @staff[:intro_myself] %></td>
+  </tr>
+  <tr>
+    <th>趣味</th>
+    <td><%= @staff[:interest] %></td>
+  </tr>
+  <tr>
+    <th>画像</th>
+    <td><%=image_tag("staff_image/#{@staff[:staff_image]}",alt:"顔写真")%></td>
+  </tr>
+</table>
+
+<% if @new == true %>
+<%= link_to "確定", "/admin/staffs",:data => {:disable_with => "保存中..."},method: :post %>
+<% elsif @new == false %>
+<%= link_to "変更", "/admin/staffs" , method: :put ,:data => {:disable_with => "保存中..."} %>
+<%end%>
+<%= link_to "戻る", :new_admin_staff%>
+
+    <%else%>
+      <p></p>このIDの会員は存在しません。</p>
+      <%= link_to "戻る", :new_admin_staff%>
+    <%end%>
+ 

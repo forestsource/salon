@@ -1,0 +1,35 @@
+<table class = "attr">
+  <tr>
+    <th class="th-top">氏名</th>
+    <td class="td-top"><%= @member.name %></td>
+  </tr>
+  <tr>
+    <th>性別</th>
+    <td><%= @member.sex == 0 ? "男" : "女" %></td>
+  </tr>
+  <tr>
+    <th>電話番号</th>
+    <td><%= @member.tel %></td>
+  </tr>
+  <tr>
+    <th>誕生日</th>
+    <td><%= @member.birthday.try(:strftime, "%Y年%m月%d日") %></td>
+  </tr>
+  <tr>
+    <th>住所</th>
+    <td><%= @member.adress %></td>
+  </tr>
+  <tr>
+    <th>メールアドレス</th>
+    <td><%= @member.mail %></td>
+  </tr>
+  <tr>
+    <th>ログイン用ニックネーム</th>
+    <td><%= @member.user_name %></td>
+  </tr>
+  <tr>
+    <th>メルマガ</th>
+    <td><%= @member.magazine? ? "取る" : "取らない" %></td>
+  </tr>
+</table>
+    

@@ -1,0 +1,31 @@
+<% @page_title = "シフト一覧"%>
+<h1><%=@page_title%></h1>
+
+<% if flash.notice %>
+	<a class="notices"><%= flash[:notice] %></a>
+        <br>
+<% end %>
+
+<p><%= link_to "シフト登録", :new_admin_shift %></p>
+<% if @shifts.present? %>
+<table class= "list">
+<thead> 
+  <tr>
+    <th>日付</th>
+    <th>スタッフ</th>
+    <th>出勤時間</th>
+    <th>退勤時間</th>
+  </tr>
+</thead>
+<tbody> 
+  <% @shifts.each.with_index(1) do |shift ,idx| %>
+    <tr>
+      <td class="td<%=idx%2%>"><%= shift.day %></td>
+      <td class="td<%=idx%2%>"><%= shift.staff.member.name %></td>
+      <td class="td<%=idx%2%>"><%= shift.going.time %></td>
+      <td class="td<%=idx%2%>"><%= shift.leave.time %></td>
+    </tr>
+  <% end %>
+<tbody> 
+</table>
+<% end %>

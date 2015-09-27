@@ -1,0 +1,46 @@
+	<div id="Head">
+          <div id="menu_table_back">
+          <table id="menubar_table">
+            <tr>
+              <% if controller.kind_of?(Admin::Base) %>
+		<td><div class="top"><%= link_to image_tag("menubar/top.png"), :root %></div></td>
+		<td><div class="menu"><%= link_to image_tag("menubar/menu.png"), :menus %> </div></td>
+		<td><div class="staff"><%= link_to image_tag("menubar/clerk.png"), :staffs %></div></td>
+		<td><div class="reserve"><%= link_to image_tag("menubar/reserve.png"), :reserves %></div></td>
+                <td><div class="my_account"><%= link_to image_tag("menubar/my_account.png"), :account %></div></td>
+                <td> <div class="shift"><%= link_to image_tag("menubar/shift.png"), :clerk_shifts %> </div></td>
+                <td> <div class="customer"><%= link_to image_tag("menubar/customer.png"), :clerk_members %> </div></td>
+                <td> <div class="admin_top"><%= link_to image_tag("menubar/admin_top.png"), :admin_root %> </div></td>
+              <% elsif controller.kind_of?(Clerk::Base) %>
+                  <td><div class="top"><%= link_to image_tag("menubar/top.png"), :root %></div></td>
+                  <td><div class="menu"><%= link_to image_tag("menubar/menu.png"), :menus %> </div></td>
+                  <td><div class="staff"><%= link_to image_tag("menubar/clerk.png"), :staffs %></div></td>
+                  <td><div class="reserve"><%= link_to image_tag("menubar/reserve.png"), :reserves %></div></td>
+                  <td><div class="my_account"><%= link_to image_tag("menubar/my_account.png"), :account %></div></td>
+                  <td> <div class="shift"><%= link_to image_tag("menubar/shift.png"), :clerk_shifts %> </div></td>
+                  <td> <div class="customer"><%= link_to image_tag("menubar/customer.png"), :clerk_members %> </div></td>
+                  <% if @current_member.administrator? %>
+                      <td> <div class="admin_top"><%= link_to image_tag("menubar/admin_top.png"), :admin_root %> </div></td>
+                  <%end%>
+              <% else %>
+                  <td><div class="top"><%= link_to image_tag("menubar/top.png"), :root %></div></td>
+                  <td><div class="menu"><%= link_to image_tag("menubar/menu.png"), :menus %> </div></td>
+                  <td><div class="staff"><%= link_to image_tag("menubar/clerk.png"), :staffs %></div></td>
+                  <td><div class="reserve"><%= link_to image_tag("menubar/reserve.png"), :reserves %></div></td>
+                  <% if @current_member %> 
+                    <td><div class="my_account"><%= link_to image_tag("menubar/my_account.png"), :account %></div></td>
+                    <% if @current_member.administrator? %>
+                      <td> <div class="shift"><%= link_to image_tag("menubar/shift.png"), :clerk_shifts %> </div></td>
+                      <td> <div class="customer"><%= link_to image_tag("menubar/customer.png"), :clerk_members %> </div></td>
+                      <td> <div class="admin_top"><%= link_to image_tag("menubar/admin_top.png"), :admin_root %> </div></td>
+                    <% elsif @current_member.clerk? %>
+                      <td> <div class="shift"><%= link_to image_tag("menubar/shift.png"), :clerk_shifts %> </div></td>
+                      <td> <div class="customer"><%= link_to image_tag("menubar/customer.png"), :clerk_members %> </div></td>
+                    <% end %>
+                  <% end %>
+                  
+              <% end %>
+            </tr>
+          </table>
+          </div>
+	</div>

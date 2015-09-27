@@ -1,0 +1,23 @@
+<% @page_title = "メニュー登録確認"%>
+
+<h1><%= @page_title %></h1>
+
+<table class = "attr">
+  <tr>
+    <th class="th-top">メニュー</th>
+    <td class="td-top"><%= @menu.menu_name %></td>
+  </tr>
+  <tr>
+    <th>メニュー時間</th>
+    <td><%= @menu.menu_time%></td>
+  </tr>
+  <tr>
+    <th>お値段</th>
+    <td><%= @menu.price%>&nbsp yen</td>
+  </tr>
+  <tr>
+    <th>カテゴリー</th>
+    <td><%= @category_name%></td>
+  </tr>
+</table>
+<%= link_to "確定", "/admin/staffs",:data => {:disable_with => "保存中..."},method: :post %>

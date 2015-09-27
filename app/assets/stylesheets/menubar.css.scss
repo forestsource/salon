@@ -1,0 +1,126 @@
+/*
+ *
+ *menubar
+ *
+ */
+#Menubar_bar {
+    margin: 0 auto;
+    border: solid;
+}
+#Head {
+    background-color: #000;
+    margin: 0 auto;
+}
+
+#menubar_table{
+    table-layout: auto;
+    border: none;
+    color: #FFF;
+    border-spacing: 10px 0px;
+    tr,td{
+        border: none;
+        color: #FFF;
+    }
+    a{
+        color: #FFF;
+    }
+}
+#menu_table_back{
+    margin: 0 auto;
+}
+
+@mixin menubar_bottom{
+    overflow:hidden; /* これが重要 */
+	position:relative; /* これが重要 */
+        //border:1px #FFF solid;
+}
+@mixin menubar_bottom_img{
+    width: auto;
+    height: 100px;
+}
+.top
+{
+	@include menubar_bottom;
+	width:75px;
+	height:50px;
+            img{
+                @include menubar_bottom_img;
+                position:relative;left:-10px;
+            }
+    }
+.menu,
+.shift
+{
+	@include menubar_bottom;
+	width:90px;
+	height:50px;
+            img{
+                @include menubar_bottom_img;
+                position:relative;left:-10px;
+            }
+    }
+.staff
+{
+	@include menubar_bottom;
+	width:110px;
+	height:50px;
+            img{
+                @include menubar_bottom_img;
+                position:relative;left:-10px;
+            }
+    }
+.reserve
+{
+	@include menubar_bottom;
+	width:130px;
+	height:50px;
+            img{
+                @include menubar_bottom_img;
+                position:relative;left:-10px;  
+            }
+    }
+.admin_top{
+    @include menubar_bottom;
+	width:100px;
+	height:50px;
+            img{
+                @include menubar_bottom_img;
+                position:relative;left:-10px;  
+            }
+    
+}
+.my_account
+{
+	@include menubar_bottom;
+	width:200px;
+	height:50px;
+            img{
+                @include menubar_bottom_img;
+                position:relative;left:-10px;  
+            }
+    }
+.customer{
+    @include menubar_bottom;
+	width:140px;
+	height:50px;
+            img{
+                @include menubar_bottom_img;
+                position:relative;left:-10px;  
+            }
+}
+
+
+
+.top img:hover,
+.menu img:hover,
+.shift img:hover,
+.customer img:hover,
+.staff img:hover,
+.reserve img:hover,
+.my_account img:hover,
+.admin_top img:hover,
+.customer img:hover
+{
+    @include menubar_bottom_img;
+    position:relative;top:-50px;
+}

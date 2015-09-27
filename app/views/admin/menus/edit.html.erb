@@ -1,0 +1,27 @@
+<% @page_title = "メニュー編集"%>
+<h1><%= @page_title %></h1>
+
+<%= form_for  @menu, :url=>{:action => 'update'} do |form|%>
+<table class="attr">
+  <tr>
+    <th class="th-top"><%=form.label :menu_name , "メニュー名"%></th>
+    <td class="td-top"><%=form.text_field :menu_name%></td>
+  </tr>
+  <tr>
+    <th><%=form.label :menu_time , "所要時間"%></th>
+    <% @options = [30,60,90,120,150,180,210,240,270,300,330,360] %>  
+    <td><%= form.select :menu_time, @options %></td>
+  </tr>
+  <tr>
+    <th><%=form.label :price,"値段"%></th>
+    <td><%= form.text_field :price %></td>
+  </tr>
+  <tr>
+    <th><%=form.label :category_id , "カテゴリー"%></th>
+    <td>
+    <%= form.select :category_id , @categories %>
+    </td>
+  </tr>
+</table>
+<p><%= form.submit %></p>
+<%end%>

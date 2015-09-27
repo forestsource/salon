@@ -1,0 +1,30 @@
+$max: 100%;
+$num: 3;
+$margin: 2%;
+
+
+
+.staffs_view{
+    float: left;
+    width: ($max/$num) - ($margin*$num);
+    margin: $margin;
+    border: 2px solid #bbb;
+    border-collapse:separate;
+    tr{
+        td{
+        }
+        th{
+            border-bottom: #A52A4F double; 
+        }
+    }  
+}
+.td-l{
+    border-right: #A52A4F 1px solid;
+}
+#staff_table{
+    width: 100%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+
+}
+

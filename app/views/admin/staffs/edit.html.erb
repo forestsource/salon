@@ -1,0 +1,33 @@
+<% @page_title = "スタッフ編集"%>
+<h1><%= @page_title %></h1>
+<br>
+</br>
+
+<%= form_for @staff, :url=>{:action => 'update'}, :html => {:multipart => true} do |f| %>
+
+<table class="attr">
+  <tr>
+    <th class="th-top">スタッフID</th>
+    <td class="td-top"><%=@staff.member.name%></td>
+  </tr>
+  <tr>
+    <th><%=f.label :category_id , "得意分野選択"%></th>
+    <td><%= f.select :category_id, @categories %></td>
+  </tr>
+  <tr>
+    <th><%=f.label :intro_myself,"自己紹介"%></th>
+    <td><%= f.text_field :intro_myself %></td>
+  </tr>
+  <tr>
+    <th><%=f.label :interest , "趣味"%></th>
+    <td><%= f.text_field :interest %></td>
+  </tr>
+  <tr>
+    <th><%=f.label :staff_image , "写真"%></th>
+    <td><%=f.file_field :staff_image %></td>
+  </tr>
+</table>
+
+<%= f.button "更新",:action => "check" %>
+<%= link_to "戻る", :action => "index" %>
+<% end %>

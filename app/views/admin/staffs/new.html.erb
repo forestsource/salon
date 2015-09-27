@@ -1,0 +1,35 @@
+<% @page_title = "スタッフ追加"%>
+<h1><%= @page_title %></h1>
+<% if flash.notice %>
+	<a class="notices"><%= flash[:notice] %></a>
+        <br>
+<% end %>
+
+<%= form_for [:check ,:admin,@staff],:html => {:multipart => true} do |f| %>
+
+<table class="attr">
+  <tr>
+    <th class="th-top"><%=f.label :member_id , "会員ID"%></th>
+    <td class="td-top"><%=f.text_field :member_id , :size => '4',:maxlength =>'4'%></td>
+  </tr>
+  <tr>
+    <th><%=f.label :category_id , "得意分野選択"%></th>
+    <td><%= f.select :category_id, @categories %></td>
+  </tr>
+  <tr>
+    <th><%=f.label :intro_myself,"自己紹介"%></th>
+    <td><%= f.text_field :intro_myself %></td>
+  </tr>
+  <tr>
+    <th><%=f.label :interest , "趣味"%></th>
+    <td><%= f.text_field :interest %></td>
+  </tr>
+  <tr>
+    <th><%=f.label :staff_image , "写真"%></th>
+    <td><%=f.file_field :staff_image %></td>
+  </tr>
+</table>
+
+<%= f.button "確認へ",:action => "check" %>
+<%= link_to "戻る", :action => "index" %>
+<% end %>

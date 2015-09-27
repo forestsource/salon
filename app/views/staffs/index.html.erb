@@ -1,0 +1,32 @@
+<% if @staffs.present? %>
+<div id="staff_table">
+  
+ <% @staffs.each.with_index do |staff,idx| %>
+  <%if idx%3 == 0%>
+    <br>
+  <%end%>
+  <table class="staffs_view">
+    <tr>
+      <th colspan="2"><%=image_tag("staff_image/#{staff.staff_image}",alt:"顔写真")%></th>
+    </tr>
+    <tr>
+      <td class="td-l">名前</td>
+      <td><%= staff.member.name%></td>
+    </tr>
+    <tr>
+      <td class="td-l">趣味</td>
+      <td><%= staff.interest%></td>
+    </tr>
+    <tr>
+      <td class="td-l">自己紹介</td>
+      <td><%= staff.intro_myself%></td>
+    </tr>
+    <tr>
+      <td class="td-l">得意分野</td>
+      <td><%= staff.category.category_name%></td>
+    </tr>
+  </table>
+  
+  <%end%>
+</div>
+<%end%>

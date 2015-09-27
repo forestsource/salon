@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Beauty salonZ - <%= @page_title%></title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+    </head>
+    <body>
+        <div id="Header">
+            <%= render "shared/header"%>
+        </div>
+	<% if params[:controller] == "top" %>
+	    <div id="slide">
+	    	<%= render "shared/slide"%>
+	    </div>
+	<%end%>
+	
+        <div id="Menubar_bar">
+		<%= render "shared/menubar"%>
+	</div>
+	<% if params[:controller] == "top" %>
+	    <div id="Top_contener">
+		<%= yield%>
+	    </div>
+        
+	<%else%>
+	    <div id="Contener">
+		<%= yield%>
+	    </div>
+	<%end%>
+        
+        <div id="Footer">
+            <%= render "shared/fotter"%>
+        </div>
+    </body>
+</html>

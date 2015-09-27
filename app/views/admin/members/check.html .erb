@@ -1,0 +1,23 @@
+<%@page_title ="シフト登録確認"%>
+<h1><%=@page_title%></h1>
+<% if @going.present? %>
+<table class = "attr">
+  <tr>
+    <th>シフト登録日</th>
+    <td><%= @ymd %></td>
+  </tr>
+  <tr>
+    <th>出勤時間</th>
+    <td><%= @going.time %></td>
+  </tr>
+  <tr>
+    <th>退勤時間</th>
+    <td><%= @leave.time %></td>
+  </tr>
+
+</table>
+<%end%>
+<p>
+<%= link_to "確定", :admin_shifts, method: :post %>
+</p>
+<%= link_to "戻る", :new_admin_shift %>

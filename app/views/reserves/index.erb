@@ -1,0 +1,18 @@
+<h1>Reserves/index</h1>
+<p>menu</p>
+<form>
+    <%=select :page :name
+    <%=@Menus.each do |name|%>
+        ,{" #<%=@Menus.menu_name%>" => "#<%=@Menus.id%>"}
+    <%end%>
+    ,:prompt => "選択して下さい。"%>
+
+    </select>
+    
+    <select id="staff_pull">
+    <option value="none" selected>スタッフを選択して下さい。</option>
+    <%=@Staffes.each do |name|%>
+    <option value="<%=@Menus.name%>"></option>
+    <%end%>
+    </select>
+</form>

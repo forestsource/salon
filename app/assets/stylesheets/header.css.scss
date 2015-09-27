@@ -1,0 +1,41 @@
+/*
+ *
+ *header
+ *
+ */
+#Header{
+    width:100%;
+    background-image: url(/assets/marble.jpg);
+    background-repeat: repeat;
+    border: solid;
+    border-width: 0.5px;
+}
+/*
+ *
+ *Login Bar
+ *
+ */
+#Login_bar {
+  width: 100%;
+  height: 150px;
+}
+#Login_left {
+    width: 50%;
+    height: 100%;
+    float: left;
+    background-image: url(/assets/logo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    /*background-color: #AA11AA;*/
+}
+
+#Login_right {
+    width: 50%;
+    height: 100%;
+    float: left;
+    text-align: right;
+   /* background-color: #4444AA;*/
+   a{
+    color: #F00;
+   }
+}
